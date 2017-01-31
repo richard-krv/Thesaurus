@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThesaurusLib", "ThesaurusLib\ThesaurusLib.csproj", "{2D0D1052-7828-4E91-9878-A425A62CA028}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ric.ThesaurusLib", "ThesaurusLib\Ric.ThesaurusLib.csproj", "{2D0D1052-7828-4E91-9878-A425A62CA028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ric.Thesaurus.Test", "Ric.Thesaurus.Test\Ric.Thesaurus.Test.csproj", "{1CFB6E2C-BB5E-47E5-8D0C-3DB01BE8AF1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleThesaurusClient", "ConsoleThesaurusClient\ConsoleThesaurusClient.csproj", "{A0C11A2F-6127-41C8-9CD0-E5DEB4EC19CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,13 @@ Global
 		{2D0D1052-7828-4E91-9878-A425A62CA028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D0D1052-7828-4E91-9878-A425A62CA028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D0D1052-7828-4E91-9878-A425A62CA028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CFB6E2C-BB5E-47E5-8D0C-3DB01BE8AF1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CFB6E2C-BB5E-47E5-8D0C-3DB01BE8AF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CFB6E2C-BB5E-47E5-8D0C-3DB01BE8AF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFB6E2C-BB5E-47E5-8D0C-3DB01BE8AF1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C11A2F-6127-41C8-9CD0-E5DEB4EC19CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C11A2F-6127-41C8-9CD0-E5DEB4EC19CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C11A2F-6127-41C8-9CD0-E5DEB4EC19CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

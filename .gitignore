@@ -240,3 +240,9 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/ConsoleThesaurusClient/Program/data/6.json
+/ConsoleThesaurusClient/Program/data/5.json
+/ConsoleThesaurusClient/Program/data/4.json
+/ConsoleThesaurusClient/Program/data/3.json
+/ConsoleThesaurusClient/Program/data/2.json
+/ConsoleThesaurusClient/Program/data/1.json
