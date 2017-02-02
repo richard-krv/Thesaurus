@@ -24,41 +24,13 @@ namespace Ric.ThesaurusLib.Repositories
             }
         }
         string AllFilesWildcard = string.Format("*?.{0}", DataFileExtention);
-        public sealed override ISynonymSearchResult GetSynonyms(string word)
-        {
-            var fileNames = GetSynonymGroupNames();
-            var tasks = new List<Task>();
-            var results = new SearchSynonymGroupCollection();
-            foreach(var fileName in fileNames)
-            {
-                if (CancelSrc.IsCancellationRequested)
-                    break;
-                tasks.Add(Task.Run(async() => results.Add(await IsContainedInSynonymGroupAsync(word, fileName), fileName)));
-            }
-            Task.WaitAll(tasks.ToArray(), CancelSrc.Token);
-
-            var synGrs = results.GetApplicableSynonymGroups();
-
-            var synonymGroupsResult = new SynonymSearchResult();
-            foreach(var synGrp in synGrs)
-            {
-                synonymGroupsResult.AddSynonymGroupData(LoadSynonymGroupWords(synGrp));
-            }
-            return synonymGroupsResult;
-        }
 
         internal string BuildFileName(string synonymGroup)
         {
             return Path.Combine(DataFolderPath, string.Format("{0}.{1}", synonymGroup, DataFileExtention));
         }
-        public sealed override void SaveSynonyms(IEnumerable<string> synonyms)
-        {
-            var newSGN = GetNewSynonymGroupName();
 
-            SaveToPersistence(newSGN, synonyms);
-        }
-
-        internal string GetNewSynonymGroupName()
+        public override string GetNewSynonymGroupName()
         {
             var resultFileName = "";
             var existingGroupNames = GetSynonymGroupNames();
@@ -80,31 +52,12 @@ namespace Ric.ThesaurusLib.Repositories
             return int.TryParse(val, out v);
         }
 
-        internal Task<bool> IsContainedInSynonymGroupAsync(string word, string synonymGroupName)
+        public override Task<bool> IsContainedInSynonymGroupAsync(string word, string synonymGroupName)
         {
             var data = LoadSynonymGroupText(synonymGroupName);
             var match = Regex.Match(data, string.Format("{0}", word));
             //if (match.Success) CancelSrc.Cancel();
             return Task.FromResult(match.Success);
-        }
-
-        public sealed override IEnumerable<string> GetAllWords()
-        {
-            var fileNames = GetSynonymGroupNames();
-            var filesData = new ConcurrentBag<string>();
-            var tasks = new List<Task>();
-            foreach(var file in fileNames)
-            {
-                tasks.Add(Task.Run(() => filesData.Add(LoadSynonymGroupText(file)),
-                    CancelSrc.Token));
-            }
-            Task.WaitAll(tasks.ToArray());
-            var result = new List<string>();
-            foreach(var file in filesData)
-            {
-                result.AddRange(file.Split('\n'));
-            }
-            return result.ToArray();
         }
 
         public override IEnumerable<string> GetSynonymGroupNames()

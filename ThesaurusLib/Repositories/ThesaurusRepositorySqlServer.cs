@@ -13,21 +13,17 @@ namespace Ric.ThesaurusLib.Repositories
         {
         }
 
-        public sealed override void SaveSynonyms(IEnumerable<string> synonyms)
-        {
-            throw new NotImplementedException();
-        }
-        public sealed override ISynonymSearchResult GetSynonyms(string word)
-        {
-            throw new NotImplementedException();
-        }
-
-        public sealed override IEnumerable<string> GetAllWords()
+        public override string GetNewSynonymGroupName()
         {
             throw new NotImplementedException();
         }
 
         public override IEnumerable<string> GetSynonymGroupNames()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task<bool> IsContainedInSynonymGroupAsync(string word, string synonymGroupName)
         {
             throw new NotImplementedException();
         }

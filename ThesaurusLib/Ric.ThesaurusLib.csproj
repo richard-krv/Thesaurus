@@ -44,7 +44,9 @@
     <Compile Include="Exceptions\ThesaurusExceptionBase.cs" />
     <Compile Include="ILogger.cs" />
     <Compile Include="ISynonymSearchResult.cs" />
+    <Compile Include="Repositories\IMultithreadedCancellable.cs" />
     <Compile Include="Repositories\IThesaurusRepository.cs" />
+    <Compile Include="Repositories\IThesaurusSynonymGroupRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\ThesaurusRepositorySqlServer.cs" />
     <Compile Include="SearchSynonymGroupCollection.cs" />
